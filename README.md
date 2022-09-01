@@ -60,10 +60,10 @@ Once you fork and clone the repo:
 - Django
 - HTML
 - Python
-- NumPy ?
-- Pandas ?
+- NumPy
+- Pandas
 - Kagle
-- Chart.js?
+- Chart.js
 
 ---
 
