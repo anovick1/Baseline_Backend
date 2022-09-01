@@ -1,14 +1,12 @@
 # The Baseline
 
-
-### Social media app where you can create + share graphs about NBA statistcs  
+### Social media app where you can create + share graphs about NBA statistcs
 
 ### Date: 08/31/2022
 
 ---
 
 #### Avery Novick: <a href="https://www.linkedin.com/in/avery-novick/" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://github.com/anovick1" target="_blank" rel="noreferrer">GitHub</a>
-
 
 ---
 
@@ -52,7 +50,7 @@ Once you fork and clone the repo:
 
 ## Technologies Used
 
-<img style="center" src="https://repository-images.githubusercontent.com/248812720/56902700-c5bd-11ea-813f-ed8631377258"  width="500">
+<img style="center" src=""  width="500">
 
 - Vue.js
 - PostgresQL
@@ -73,10 +71,8 @@ Once you fork and clone the repo:
 
 - [ ] Allow users to dm each other
 
-
 ---
 
 ### **_Resources_**
-
 
 ##### [Trello Link](https://trello.com/b/8MOoe2VG/baseline)
