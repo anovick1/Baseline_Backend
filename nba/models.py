@@ -76,10 +76,10 @@ class Stat(models.Model):
   obpm = models.CharField(max_length=100, blank=True, null=True)
   dbpm = models.CharField(max_length=100, blank=True, null=True)
   bpm = models.CharField(max_length=100, blank=True, null=True)
-  vorp =models.CharField(max_length=100, blank=True, null=True)
+  vorp =models.CharField(max_length=150, blank=True, null=True)
 
   def __str__(self):
-    return self.bpm
+    return self.player
 class Chart(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="charts")
@@ -89,7 +89,7 @@ class Chart(models.Model):
     x = models.CharField(max_length=100)
 
     def __str__(self):
-      return self.player
+      return self.title
 
 
 class Comment(models.Model):
