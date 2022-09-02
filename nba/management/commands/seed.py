@@ -1,7 +1,8 @@
 # from nba.models import Player, Stat
 import pandas as pd
-from django.core.management.base import BaseCommand
 from nba.models import Player, Stat
+from django.core.management.base import BaseCommand
+import time
 
 players = pd.read_csv("./data/players.csv")
 player_stats = pd.read_csv("./data/player_stats.csv")
@@ -9,7 +10,7 @@ player_stats = pd.read_csv("./data/player_stats.csv")
 def seed_player():
   for index in players.index:
     player = Player(
-    player_id  = players.loc[index, "player_id"],
+    player_number  = players.loc[index, "player_id"],
     player  = players.loc[index, "player"],
     birth_year = players.loc[index, "birth_year"],
     hof = players.loc[index, "hof"],
@@ -24,7 +25,7 @@ def seed_stats():
   for index in player_stats.index:
     print(index)
     stats = Stat(
-  player = Player.objects.filter(player_id=player_stats.loc[index, "player_id"]),
+  player = Player.objects.filter(player_number = player_stats.loc[index, "player_id"]).first(),
   seas_id = player_stats.loc[index, "seas_id"],
   season = player_stats.loc[index, "season"],
   pos = player_stats.loc[index, "pos"],
@@ -88,7 +89,7 @@ def clear_data():
 
 class Command(BaseCommand):
   def handle(self, *args, **options):
-    clear_data()
-    seed_player()
+    # clear_data()
+    # seed_player()
     seed_stats()
     print("completed")

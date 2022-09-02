@@ -11,7 +11,7 @@ class User(models.Model):
         return self.name
 
 class Player(models.Model):
-    player_number  = models.IntegerField()
+    player_number  = models.IntegerField(primary_key=True)
     player  = models.CharField(max_length=100)
     birth_year = models.CharField(max_length=100, blank=True, null=True)
     hof = models.BooleanField(default=False)

@@ -55,7 +55,7 @@ class PlayerSerializer(serializers.HyperlinkedModelSerializer):
     )
   class Meta: 
     model = Player
-    fields = ('id', 'player_number', 'player', 'birth_year', "hof", "num_seasons", "first_seas",
+    fields = ('player_number', 'player', 'birth_year', "hof", "num_seasons", "first_seas",
               "last_seas", "img_url", "stats", 'charts'  )
 
 class ChartSerializer(serializers.HyperlinkedModelSerializer):
