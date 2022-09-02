@@ -21,22 +21,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     model = User
     fields = ('id','name', 'email', 'charts', 'likes', 'comments' )
 
-class PlayerSerializer(serializers.HyperlinkedModelSerializer):
-  stats = serializers.HyperlinkedRelatedField(
-        view_name='stat_detail',
-        many = True,
-        read_only=True
-    )
-  charts = serializers.HyperlinkedRelatedField(
-        view_name='chart_detail',
-        many = True,
-        read_only=True
-        
-    )
-  class Meta: 
-    model = Player
-    fields = ('id', 'player_number', 'player', 'birth_year', "hof", "num_seasons", "first_seas",
-              "last_seas", "img_url", "stats", 'charts'  )
 
 
 
@@ -56,16 +40,38 @@ class StatSerializer(serializers.HyperlinkedModelSerializer):
               'f_tr', 'orb_percent', 'drb_percent', 'trb_percent', 'ast_percent', 'stl_percent',
               'blk_percent', 'tov_percent', 'usg_percent', 'ows', 'dws', 'ws', 'ws_48', 'obpm', 'dbpm', 'bpm', 'vorp')
 
+class PlayerSerializer(serializers.HyperlinkedModelSerializer):
+  stats = StatSerializer(many = True, read_only=True )
+  # stats = serializers.HyperlinkedRelatedField(
+  #       view_name='stat_detail',
+  #       many = True,
+  #       read_only=True
+  #   )
+  charts = serializers.HyperlinkedRelatedField(
+        view_name='chart_detail',
+        many = True,
+        read_only=True
+        
+    )
+  class Meta: 
+    model = Player
+    fields = ('id', 'player_number', 'player', 'birth_year', "hof", "num_seasons", "first_seas",
+              "last_seas", "img_url", "stats", 'charts'  )
+
 class ChartSerializer(serializers.HyperlinkedModelSerializer):
   author = serializers.HyperlinkedRelatedField(
         view_name='user_detail',
         read_only=True
     )
-  player = serializers.HyperlinkedRelatedField(
-        view_name='player_detail',
+  player = PlayerSerializer(
         many = True,
         read_only=True
     )
+  # player = serializers.HyperlinkedRelatedField(
+  #       view_name='player_detail',
+  #       many = True,
+  #       read_only=True
+  #   )
   likes = serializers.HyperlinkedRelatedField(
         view_name='like_detail',
         many = True,
