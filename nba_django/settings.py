@@ -63,6 +63,9 @@ MIDDLEWARE = [
     
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+
 ROOT_URLCONF = "nba_django.urls"
 
 TEMPLATES = [
@@ -80,6 +83,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = "nba_django.wsgi.application"
 
