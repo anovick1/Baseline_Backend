@@ -24,7 +24,7 @@ def seed_stats():
   for index in player_stats.index:
     print(index)
     stats = Stat(
-  player = Player.objects.filter(player_id=player_stats.loc[index, "player_id"]).first(),
+  player = Player.objects.filter(player_id=player_stats.loc[index, "player_id"]),
   seas_id = player_stats.loc[index, "seas_id"],
   season = player_stats.loc[index, "season"],
   pos = player_stats.loc[index, "pos"],

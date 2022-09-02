@@ -9,12 +9,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     )
   likes = serializers.HyperlinkedRelatedField(
         view_name='like_detail',
-        many = "true",
+        many = True,
         read_only=True
     )
   comments = serializers.HyperlinkedRelatedField(
         view_name='comment_detail',
-        many = "true",
+        many = True,
         read_only=True
     )
   class Meta: 
@@ -24,12 +24,19 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class PlayerSerializer(serializers.HyperlinkedModelSerializer):
   stats = serializers.HyperlinkedRelatedField(
         view_name='stat_detail',
+        many = True,
         read_only=True
+    )
+  charts = serializers.HyperlinkedRelatedField(
+        view_name='chart_detail',
+        many = True,
+        read_only=True
+        
     )
   class Meta: 
     model = Player
-    fields = ('id', 'charts', 'player_id', 'player', 'birth_year', "hof", "num_seasons", "first_seas",
-              "last_seas", "img_url", "stats" )
+    fields = ('id', 'player_number', 'player', 'birth_year', "hof", "num_seasons", "first_seas",
+              "last_seas", "img_url", "stats", 'charts'  )
 
 
 
@@ -40,7 +47,7 @@ class StatSerializer(serializers.HyperlinkedModelSerializer):
     )
   class Meta: 
     model = Stat
-    fields = ('id','player', 'season', 'player_id', 'pos', 'age', 'experience', 'lg', 'tm', 'g', 'gs',
+    fields = ('id','player', 'season', 'pos', 'age', 'experience', 'lg', 'tm', 'g', 'gs',
               'mp_per_game', 'fg_per_game', 'fga_per_game', 'fg_percent', 'x3p_per_game',
               'x3pa_per_game', 'x3p_percent', 'x2p_per_game', 'x2pa_per_game','x2p_percent', 
               'e_fg_percent', 'ft_per_game', 'fta_per_game', 'ft_percent', 'orb_per_game', 
@@ -56,22 +63,23 @@ class ChartSerializer(serializers.HyperlinkedModelSerializer):
     )
   player = serializers.HyperlinkedRelatedField(
         view_name='player_detail',
-        many = "true",
+        many = True,
         read_only=True
     )
   likes = serializers.HyperlinkedRelatedField(
         view_name='like_detail',
-        many = "true",
+        many = True,
         read_only=True
     )
   comments = serializers.HyperlinkedRelatedField(
         view_name='comment_detail',
-        many = "true",
+        many = True,
         read_only=True
     )
   class Meta: 
     model = Chart
     fields = ('id','title', 'author', 'player', 'y_year', 'x', "likes", "comments" )
+    depth = 1
 
 class LikeSerializer(serializers.HyperlinkedModelSerializer):
   chart = serializers.HyperlinkedRelatedField(
