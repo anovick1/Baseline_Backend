@@ -17,12 +17,11 @@ from django.utils.decorators import method_decorator
 ## users
 
 @method_decorator(csrf_exempt, name='dispatch')
-
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    
 @method_decorator(csrf_exempt, name='dispatch')
-
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -62,12 +61,36 @@ class ChartList(generics.ListCreateAPIView):
             player_obj = Player.objects.get(player_number= p["player_number"])
             newChart.player.add(player_obj)
         serializer = ChartSerializer(newChart, context=context)
-        
+
         return Response(serializer.data)
+    
+   
+    
 @method_decorator(csrf_exempt, name='dispatch')
 class ChartDetail(CsrfExemptMixin, generics.RetrieveUpdateDestroyAPIView):
     queryset = Chart.objects.all()
     serializer_class = ChartSerializer
+    
+    def update(self, request, *args, **kwargs):
+        chart_object = self.get_object()
+        data = request.data 
+        chart_object.player.set([])
+        
+        chart_object.title=data["title"]
+        chart_object.author=User.objects.filter(id = data["author"]).first()
+        chart_object.y_year=data["y_year"]
+        chart_object.x=data["x"]
+        chart_object.save()
+        for p in data["player"]:
+            player_obj = Player.objects.get(player_number= p["player_number"])
+            chart_object.player.add (player_obj)
+        
+        context={'request': request}
+
+        serializer = ChartSerializer(chart_object, context=context)
+        print(chart_object)
+        return Response(serializer.data)
+        
 
 # @method_decorator(csrf_exempt, name='dispatch')
 # class CreateChart(APIView):
@@ -88,24 +111,21 @@ class ChartDetail(CsrfExemptMixin, generics.RetrieveUpdateDestroyAPIView):
 #             return Response(status= status.HTTP_200_OK)
 ## comments
 @method_decorator(csrf_exempt, name='dispatch')
-
 class CommentList(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    
 @method_decorator(csrf_exempt, name='dispatch')
-
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
 ## likes
 @method_decorator(csrf_exempt, name='dispatch')
-
 class LikeList(generics.ListCreateAPIView):
     queryset = Like.objects.all()
     serializer_class = LikeSerializer
 @method_decorator(csrf_exempt, name='dispatch')
-
 class LikeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Like.objects.all()
     serializer_class = LikeSerializer
