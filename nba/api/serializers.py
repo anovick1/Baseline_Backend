@@ -59,10 +59,11 @@ class PlayerSerializer(serializers.HyperlinkedModelSerializer):
               "last_seas", "img_url", "stats", 'charts'  )
 
 class ChartSerializer(serializers.HyperlinkedModelSerializer):
-  author = serializers.HyperlinkedRelatedField(
-        view_name='user_detail',
-        read_only=True
-    )
+  author = UserSerializer(read_only=True)
+  # author = serializers.HyperlinkedRelatedField(
+  #       view_name='user_detail',
+  #       read_only=True
+  #   )
   player = PlayerSerializer(
         many = True,
         read_only=True
@@ -86,6 +87,21 @@ class ChartSerializer(serializers.HyperlinkedModelSerializer):
     model = Chart
     fields = ('id','title', 'author', 'player', 'y_year', 'x', "likes", "comments" )
     depth = 1
+  # def create(self, data):
+  #   chart = Chart(
+  #     title = data["tile"],
+  #     author = data["author"],
+  #     player = data["player"],
+  #     y_year = data["y_year"],
+  #     x = data["x"]
+  #   )
+  #   chart.save()
+  #   return chart
+
+class CreateChartSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Chart
+    fields = ('title', 'author', 'player', 'y_year', 'x')
 
 class LikeSerializer(serializers.HyperlinkedModelSerializer):
   chart = serializers.HyperlinkedRelatedField(

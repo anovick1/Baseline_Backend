@@ -103,7 +103,7 @@ class Comment(models.Model):
 class Like(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="likes")
   chart = models.ForeignKey(Chart, on_delete=models.CASCADE, related_name="likes")
-  count = models.IntegerField()
+  count = models.IntegerField(default=0)
   
   def __int__ (self):
     return self.count
