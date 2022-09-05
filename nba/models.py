@@ -5,6 +5,7 @@ from django.db import models
 class User(models.Model):
     name = models.CharField(max_length=100)
     email =  models.CharField(max_length=300)
+    pfp_url =  models.TextField(default='https://st4.depositphotos.com/1000507/24489/v/600/depositphotos_244890858-stock-illustration-user-profile-picture-isolate-background.jpg')
 
 
     def __str__(self):
