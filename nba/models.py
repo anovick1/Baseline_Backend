@@ -90,6 +90,7 @@ class Chart(models.Model):
     y_year = models.BooleanField(default=True)
     x = models.CharField(max_length=100)
     date = models.DateField(default=datetime.now)
+    description = models.TextField(max_length=500, default=" ")
 
     def __str__(self):
       return self.title
