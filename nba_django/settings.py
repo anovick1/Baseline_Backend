@@ -103,11 +103,19 @@ WSGI_APPLICATION = "nba_django.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nba',
-        'USER': 'nba_user',
-        'PASSWORD': 'nba',
-        'HOST': 'localhost'
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '0vU7409AsSZ28E4QJ1xd',
+        'HOST': 'containers-us-west-36.railway.app',
+        "PORT": '6862'
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'nba',
+    #     'USER': 'nba_user',
+    #     'PASSWORD': 'nba',
+    #     'HOST': 'localhost'
+    # }
 }
 
 

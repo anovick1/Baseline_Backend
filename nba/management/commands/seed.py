@@ -2,7 +2,6 @@
 import pandas as pd
 from nba.models import Player, Stat
 from django.core.management.base import BaseCommand
-import time
 
 players = pd.read_csv("./data/players.csv")
 player_stats = pd.read_csv("./data/player_stats.csv")
@@ -89,7 +88,8 @@ def clear_data():
 
 class Command(BaseCommand):
   def handle(self, *args, **options):
-    # clear_data()
-    # seed_player()
+    clear_data()
+    seed_player()
     seed_stats()
     print("completed")
+    
