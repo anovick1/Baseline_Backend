@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 # Create your models here.
@@ -88,6 +89,7 @@ class Chart(models.Model):
     player = models.ManyToManyField(Player, related_name="charts")
     y_year = models.BooleanField(default=True)
     x = models.CharField(max_length=100)
+    date = models.DateField(default=datetime.now)
 
     def __str__(self):
       return self.title

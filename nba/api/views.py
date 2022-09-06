@@ -88,7 +88,6 @@ class ChartDetail(CsrfExemptMixin, generics.RetrieveUpdateDestroyAPIView):
         context={'request': request}
 
         serializer = ChartSerializer(chart_object, context=context)
-        print(chart_object)
         return Response(serializer.data)
         
 
