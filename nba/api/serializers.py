@@ -85,7 +85,7 @@ class ChartSerializer(serializers.HyperlinkedModelSerializer):
     )
   class Meta: 
     model = Chart
-    fields = ('id','title', 'author', 'player', 'y_year', 'x', "likes", "comments" )
+    fields = ('id','title', 'author', 'player', 'y_year', 'x', "likes", "comments", "date", "description" )
     depth = 1
   # def create(self, data):
   #   chart = Chart(

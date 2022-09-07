@@ -89,8 +89,8 @@ class Chart(models.Model):
     player = models.ManyToManyField(Player, related_name="charts")
     y_year = models.BooleanField(default=True)
     x = models.CharField(max_length=100)
-    date = models.DateField(default=datetime.now)
-    description = models.TextField(max_length=500, default=" ")
+    date = models.DateTimeField(default=datetime.now)
+    description = models.CharField(max_length=255, default=" ")
 
     def __str__(self):
       return self.title
