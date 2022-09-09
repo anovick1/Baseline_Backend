@@ -4,14 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "==4.1.1"
 psycopg2-binary = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 whitenoise = "*"
-dj-database-url = "*"
+dj-database-url = "==1.0.0"
 gunicorn = "*"
 decouple="*"
+django-braces = "==1.15.0"
+pandas = "==1.4.4"
+python-decouple = "==3.6"
 
 [dev-packages]
 
