@@ -114,14 +114,7 @@ DATABASES = {
 #         'PASSWORD': 'nba',
 #         'HOST': 'localhost'
 #     }
-'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '0vU7409AsSZ28E4QJ1xd',
-        'HOST': 'containers-us-west-36.railway.app',
-        "PORT": '6862'
-    }
+'default': config("DATABASE_URL")
 }
 
 ### heroku db
