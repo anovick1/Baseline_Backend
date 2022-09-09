@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from decouple import config
 import os
+import dj_database_url
 
 
 
@@ -120,9 +121,9 @@ DATABASES = {
 }
 
 ### heroku db
-# DATABASES = {
-#   'default': dj_database_url.config(conn_max_age=600)
-# }
+DATABASES = {
+  'default': dj_database_url.config(conn_max_age=600)
+}
 
 
 STATIC_ROOT=os.path.join(BASE_DIR, "static/")
