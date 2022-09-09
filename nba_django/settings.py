@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+# import dj_database_url
 
 
 
@@ -108,21 +108,21 @@ WSGI_APPLICATION = "nba_django.wsgi.application"
 
 
 ### local db
-# DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'nba',
-    #     'USER': 'nba_user',
-    #     'PASSWORD': 'nba',
-    #     'HOST': 'localhost'
-    # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nba',
+        'USER': 'nba_user',
+        'PASSWORD': 'nba',
+        'HOST': 'localhost'
+    }
 # 'default': config("DATABASE_URL")
-# }
+}
 
 ### heroku db
-DATABASES = {
-  'default': dj_database_url.config(conn_max_age=600)
-}
+# DATABASES = {
+#   'default': dj_database_url.config(conn_max_age=600)
+# }
 
 
 STATIC_ROOT=os.path.join(BASE_DIR, "static/")
