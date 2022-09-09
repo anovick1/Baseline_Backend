@@ -1,1 +1,1 @@
-web: gunicorn Baseline_Backend
+web: gunicorn nba_django.wsgi
