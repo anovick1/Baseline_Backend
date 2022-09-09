@@ -15,6 +15,7 @@ from decouple import config
 import os
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -66,6 +67,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "corsheaders.middleware.CorsMiddleware",
@@ -114,7 +116,7 @@ DATABASES = {
 #         'PASSWORD': 'nba',
 #         'HOST': 'localhost'
 #     }
-'default': config("DATABASE_URL")
+# 'default': config("DATABASE_URL")
 }
 
 ### heroku db
