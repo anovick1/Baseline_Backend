@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 import os
 import dj_database_url
 
@@ -25,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
-
+SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = True if config('MODE') == 'dev' else False
+DEBUG = True if os.environ['MODE'] == 'dev' else False
+
 
 
 ALLOWED_HOSTS = ['*']
@@ -109,16 +108,16 @@ WSGI_APPLICATION = "nba_django.wsgi.application"
 
 
 ### local db
-DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'nba',
-#         'USER': 'nba_user',
-#         'PASSWORD': 'nba',
-#         'HOST': 'localhost'
-#     }
+# DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'nba',
+    #     'USER': 'nba_user',
+    #     'PASSWORD': 'nba',
+    #     'HOST': 'localhost'
+    # }
 # 'default': config("DATABASE_URL")
-}
+# }
 
 ### heroku db
 DATABASES = {
