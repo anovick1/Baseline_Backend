@@ -80,6 +80,7 @@ class ChartDetail(CsrfExemptMixin, generics.RetrieveUpdateDestroyAPIView):
         chart_object.author=User.objects.filter(id = data["author"]).first()
         chart_object.y_year=data["y_year"]
         chart_object.x=data["x"]
+        chart_object.description=data["description"]
         chart_object.save()
         for p in data["player"]:
             player_obj = Player.objects.get(player_number= p["player_number"])
