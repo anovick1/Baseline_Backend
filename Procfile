@@ -1,1 +1,1 @@
-web: gunicorn baseline_backend
+web: gunicorn baseline_backend.wsgi
