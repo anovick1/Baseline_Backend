@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from decouple import config
 import os
-import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -107,7 +106,7 @@ WSGI_APPLICATION = "nba_django.wsgi.application"
 
 
 ### local db
-# DATABASES = {
+DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'nba',
@@ -115,20 +114,20 @@ WSGI_APPLICATION = "nba_django.wsgi.application"
 #         'PASSWORD': 'nba',
 #         'HOST': 'localhost'
 #     }
-# 'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': '0vU7409AsSZ28E4QJ1xd',
-#         'HOST': 'containers-us-west-36.railway.app',
-#         "PORT": '6862'
-#     }
-# }
+'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '0vU7409AsSZ28E4QJ1xd',
+        'HOST': 'containers-us-west-36.railway.app',
+        "PORT": '6862'
+    }
+}
 
 ### heroku db
-DATABASES = {
-  'default': dj_database_url.config(conn_max_age=600)
-}
+# DATABASES = {
+#   'default': dj_database_url.config(conn_max_age=600)
+# }
 
 
 STATIC_ROOT=os.path.join(BASE_DIR, "static/")
