@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = True if os.environ['MODE'] == 'dev' else False
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -100,17 +103,23 @@ WSGI_APPLICATION = "nba_django.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+### local db
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'nba',
+#         'USER': 'nba_user',
+#         'PASSWORD': 'nba',
+#         'HOST': 'localhost'
+#     }
+# }
+
+### heroku db
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nba',
-        'USER': 'nba_user',
-        'PASSWORD': 'nba',
-        'HOST': 'localhost'
-    }
+  'default': dj_database_url.config(conn_max_age=600)
 }
-
-
+STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
