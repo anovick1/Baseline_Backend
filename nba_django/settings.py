@@ -28,7 +28,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = True if os.environ['MODE'] == 'dev' else False
+DEBUG = True if config('MODE') == 'dev' else False
 
 
 ALLOWED_HOSTS = ['*']
@@ -115,12 +115,22 @@ WSGI_APPLICATION = "nba_django.wsgi.application"
 #         'PASSWORD': 'nba',
 #         'HOST': 'localhost'
 #     }
+# 'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': '0vU7409AsSZ28E4QJ1xd',
+#         'HOST': 'containers-us-west-36.railway.app',
+#         "PORT": '6862'
+#     }
 # }
 
 ### heroku db
 DATABASES = {
   'default': dj_database_url.config(conn_max_age=600)
 }
+
+
 STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
