@@ -56,7 +56,7 @@ class ChartList(generics.ListCreateAPIView):
     def create(self, request, *args, **kwargs):
         data = request.data
         
-        newChart = Chart.objects.create(title=data["title"], author=User.objects.filter(id = data["author"]).first(), y_year=data["y_year"], x=data["x"])
+        newChart = Chart.objects.create(title=data["title"], author=User.objects.filter(id = data["author"]).first(), y_year=data["y_year"], x=data["x"], description=data["description"])
         
         newChart.save()
         context={'request': request}
