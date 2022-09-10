@@ -91,6 +91,6 @@ class Command(BaseCommand):
   def handle(self, *args, **options):
     clear_data()
     seed_player()
-    seed_stats()
+    # seed_stats()
     print("completed")
     
