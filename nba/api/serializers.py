@@ -104,7 +104,7 @@ class ChartSerializer(serializers.HyperlinkedModelSerializer):
 class CreateChartSerializer(serializers.ModelSerializer):
   class Meta:
     model = Chart
-    fields = ('title', 'author', 'player', 'y_year', 'x')
+    fields = ('title', 'author', 'player', 'y_year', 'x', 'description')
 
 class LikeSerializer(serializers.HyperlinkedModelSerializer):
   chart = serializers.HyperlinkedRelatedField(
