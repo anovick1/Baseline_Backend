@@ -33,10 +33,10 @@ class StatSerializer(serializers.HyperlinkedModelSerializer):
     model = Stat
     fields = ('id','player', 'Season', 'Position', 'Age', 'Experience', 'League', 'Team', 'Games', 'Games_Started',
               'Minutes_Played_Per_Game', 'Field_Goals_per_game', 'Field_Goal_Attempts_per_game', 'Field_Goal_percent', 
-              'x3_Point_Field_Goals_per_game', 'x3_Point_Field_Goal_Attempts_per_game', 'x3_Point_Field_Goals_percent', 
-              'x2_Point_Field_Goals_per_game', 'x2_Point_Field_Goal_Attempts_per_game','x2_Point_Field_Goals_percent', 
+              'x3_Point_Field_Goals_per_game', 'x3_Point_Field_Goal_Attempts_per_game', 'x3_Point_Field_Goal_percent', 
+              'x2_Point_Field_Goals_per_game', 'x2_Point_Field_Goal_Attempts_per_game','x2_Point_Field_Goal_percent', 
               'Effective_Field_Goal_percent', 'Free_Throws_per_game', 'Free_Throw_Attempts_per_game', 'Free_Throw_percent', 
-              'Offensive_Rebounds_game', 'Defensive_Rebounds_game', 'Total_Rebounds_per_game', 'Assists_per_game', 'Steals_per_game', 
+              'Offensive_Rebounds_per_game', 'Defensive_Rebounds_per_game', 'Total_Rebounds_per_game', 'Assists_per_game', 'Steals_per_game', 
               'Blocks_per_game', 'Turnovers_per_game', 'Personal_Fouls_per_game', 'Points_per_game', 'Player_Efficiency_Rating', 
               'True_Shooting_percent', 'x3_Point_Attempt_Rate', 'Free_Throw_Attempt_Rate', 'Offensive_Rebounds_percent', 
               'Defensive_Rebounds_percent', 'Total_Rebounds_percent', 'Assists_percent', 'Steals_percent',
