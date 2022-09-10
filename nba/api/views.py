@@ -27,19 +27,25 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     
 ## players
+@method_decorator(csrf_exempt, name='dispatch')
+
 class PlayerList(generics.ListCreateAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
+@method_decorator(csrf_exempt, name='dispatch')
 
 class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
 
 ## stats
+@method_decorator(csrf_exempt, name='dispatch')
+
 class StatList(generics.ListCreateAPIView):
     queryset = Stat.objects.all()
     serializer_class = StatSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class StatDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Stat.objects.all()
     serializer_class = StatSerializer
