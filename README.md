@@ -96,4 +96,8 @@ pipenv manage.py seed
 
 ### **_Resources_**
 
+#### [NBA Stat Dataset](https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats?select=Advanced.csv)
+
 ##### [Trello Link](https://trello.com/b/8MOoe2VG/baseline)
+
+##### [Transition Groups Link](https://vuejs.org/guide/built-ins/transition-group.html)
