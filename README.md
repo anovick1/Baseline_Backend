@@ -45,11 +45,11 @@ python manage.py migrate
 ```
 
 ```
-pipenv manage.py seed
+python manage.py seed
 ```
 
 ```
-pipenv manage.py runserver
+python manage.py runserver
 ```
 
 ---
