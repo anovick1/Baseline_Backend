@@ -1,6 +1,8 @@
 # The Baseline Backend
 
-### Baseline allows users to create + share graphs about NBA players' season statistics
+<img src="https://cdn.dribbble.com/users/613796/screenshots/4916110/basket_ball_spin.gif" height="300px">
+
+---
 
 ### Date: 09/312/2022
 
