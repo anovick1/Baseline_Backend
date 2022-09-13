@@ -96,7 +96,10 @@ python manage.py runserver
 
 ## Future Updates
 
-- [ ] Allow users to dm each other
+- [ ] Bar graphs for career averages
+- [ ] Team Stats
+- [ ] Allow users to make collections of multiple graphs
+- [ ] view others' profile
 
 ---
 
