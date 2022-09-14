@@ -90,6 +90,7 @@ python manage.py runserver
 - CSS
 - HTML
 - Firebase
+- Google Sign In API
 - Heroku
 
 ---
